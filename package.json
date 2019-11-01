@@ -1,0 +1,28 @@
+{
+  "name": "someoftherecipes",
+  "version": "1.0.0",
+  "description": "This website allows users to add new recipes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhutch50/SOMEofTheRecipes.git"
+  },
+  "keywords": [
+    "api",
+    "nodejs",
+    "restful",
+    "express"
+  ],
+  "author": "Joshua Hutcheson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhutch50/SOMEofTheRecipes/issues"
+  },
+  "homepage": "https://github.com/jhutch50/SOMEofTheRecipes#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
