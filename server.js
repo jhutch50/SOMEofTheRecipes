@@ -12,15 +12,29 @@ mongoose.Promise = global.Promise
 
 
 
-//This is connecting to local server,
-//but if you had an external server
-//such as a cloud based server, like mLab, you
-//would connect that here instead
-mongoose.connect('mongodb://localhost/RECIPEdb', 
-{   useNewUrlParser: true, 
-    useFindAndModify: false,
-    useCreateIndex: true,
-    useUnifiedTopology: true })
+//PUT CONNECTION CREDENTIALS HERE, USE DOTENV FOR SECURITY PURPOSES OF PUTTING ON GIT, OR RUN LOCAL VARIABLE
+
+//const uri = 'mongodb://localhost/RECIPEdb';
+var dotenv = require('dotenv');
+dotenv.config();
+var uri = process.env.MONGOLAB_URI;
+
+
+mongoose.connect(
+    uri,      {   useNewUrlParser: true, 
+        useFindAndModify: false,
+        useCreateIndex: true,
+        useUnifiedTopology: true },
+    function(err, client) {
+        if(err) {
+             console.log('Error occurred while connecting to MongoDB Atlas...\n',err);
+        }
+        console.log('Connected...');
+        
+    }
+
+    
+);
 
 //bodyParser setup for json definition
 app.use(bodyParser.urlencoded({ extended: true}));
