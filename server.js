@@ -20,10 +20,22 @@ const DBUSERNAME = "guest";
 const DBPASSWORD = "CandyCorn1234"
 const uri = "mongodb+srv://"+DBUSERNAME+":"+DBPASSWORD+"@someoftherecipes-csi2x.mongodb.net/RECIPEdb";
 
-
+var options = { 
+    server: { 
+      socketOptions: { 
+        keepAlive: 300000, connectTimeoutMS: 30000 
+      } 
+    }, 
+    replset: { 
+      socketOptions: { 
+        keepAlive: 300000, 
+        connectTimeoutMS : 30000 
+      } 
+    } 
+  };
 
 mongoose.connect(
-    uri,      {   useNewUrlParser: true, 
+    uri, {   useNewUrlParser: true, 
         useFindAndModify: false,
         useCreateIndex: true,
         useUnifiedTopology: true },
@@ -33,7 +45,8 @@ mongoose.connect(
         }
         console.log('Connected...');
         
-    }
+    },
+    options
 
     
 );
@@ -55,3 +68,4 @@ app.get('/', (req, res) =>
 app.listen(PORT, () =>
     console.log(`Your server is running on port ${PORT}`)
 );
+
