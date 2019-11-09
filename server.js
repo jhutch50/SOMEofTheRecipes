@@ -4,7 +4,8 @@ import bodyParser from 'body-parser';
 import routes from './src/routes/recipeRoutes';
 
 const app = express();
-const PORT = 3000;
+//const PORT = 3000;
+const PORT = process.env.PORT || 80
 
 //mongoose connection, uses promise to make connection
 //and we don't wait for it
@@ -51,6 +52,6 @@ app.get('/', (req, res) =>
     res.send(`Node and express server is running on port ${PORT}`)
 );
 
-app.listen("https://mysterious-dawn-71769.herokuapp.com/", () =>
+app.listen(PORT, () =>
     console.log(`Your server is running on port ${PORT}`)
 );
