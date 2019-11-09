@@ -1,10 +1,11 @@
 {
   "name": "someoftherecipes",
   "version": "1.0.0",
-  "description": "This website allows users to add new recipes",
-  "main": "index.js",
+  "description": "This API allows users to add new recipes to a MongoDB database",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js --exec babel-node -e js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/jhutch50/SOMEofTheRecipes#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.7",
