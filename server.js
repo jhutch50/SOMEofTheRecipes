@@ -15,9 +15,10 @@ mongoose.Promise = global.Promise
 //PUT CONNECTION CREDENTIALS HERE, USE DOTENV FOR SECURITY PURPOSES OF PUTTING ON GIT, OR RUN LOCAL VARIABLE
 
 //const uri = 'mongodb://localhost/RECIPEdb';
-var dotenv = require('dotenv');
-dotenv.config();
-var uri = process.env.MONGOLAB_URI;
+const DBUSERNAME = "guest";
+const DBPASSWORD = "CandyCorn1234"
+const uri = "mongodb+srv://"+DBUSERNAME+":"+DBPASSWORD+"@someoftherecipes-csi2x.mongodb.net/RECIPEdb";
+
 
 
 mongoose.connect(
