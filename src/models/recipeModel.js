@@ -3,13 +3,9 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 export const RecipeSchema = new Schema({
-    swagger: {
+    openapi: {
         type: String,
-        default: '2.0'
-    },
-    title: {
-        type: String,
-        default: 'Music API Documentation'
+        default: '3.0.n'
     },
     title: {
         type: String,
