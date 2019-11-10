@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 export const RecipeSchema = new Schema({
     openapi: {
         type: String,
-        default: '3.0.n'
+        default: '3.0.1'
     },
     title: {
         type: String,
