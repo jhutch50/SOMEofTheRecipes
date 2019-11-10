@@ -4,9 +4,11 @@ import bodyParser from 'body-parser';
 import routes from './src/routes/recipeRoutes';
 
 const app = express();
+
+//Use this for Local deployment
 //const PORT = 3000;
 
-//Adjusted for Heroku Deployment
+//Use this for Heroku Deployment
 const PORT = process.env.PORT || 80
 
 //mongoose connection, uses promise to make connection
@@ -14,12 +16,13 @@ const PORT = process.env.PORT || 80
 mongoose.Promise = global.Promise
 
 
-
-//PUT CONNECTION CREDENTIALS HERE, USE DOTENV FOR SECURITY PURPOSES OF PUTTING ON GIT, OR RUN LOCAL VARIABLE
-
+//Use this for Local deployment
 //const uri = 'mongodb://localhost/RECIPEdb';
 
-//Adjusted for Heroku Deployment
+
+
+//Use this for Heroku Deployment
+//PUT CONNECTION CREDENTIALS HERE, USE DOTENV FOR SECURITY PURPOSES OF PUTTING ON GIT, OR RUN LOCAL VARIABLE
 var dotenv = require('dotenv');
 dotenv.config();
 var uri = process.env.MONGOLAB_URI;
@@ -63,9 +66,6 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 routes(app);
-
-// serving static files
-app.use(express.static('public/images'));
 
 //Logging in CLI
 app.get('/', (req, res) => 
