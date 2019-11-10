@@ -3,10 +3,6 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 export const RecipeSchema = new Schema({
-    openapi: {
-        type: String,
-        default: '3.0.1'
-    },
     title: {
         type: String,
         required: 'Enter recipe title'
