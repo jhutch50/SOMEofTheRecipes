@@ -27,7 +27,8 @@ export const RecipeSchema = new Schema({
     steps: [{
             type: String
         }],
-    imageURL: {
-        type: String
+    img: {
+        data: Buffer, 
+        contentType: String
     }
 });
