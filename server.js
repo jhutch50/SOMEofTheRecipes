@@ -69,13 +69,11 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 //used for storing images when uploaded
-app.use(multer(
-  { dest: './public/images',
+app.use(multer({ dest: './public/images',
   rename: function (fieldname, filename) {
     return filename;
   },
- }
- ));
+ }));
 
 routes(app);
 
