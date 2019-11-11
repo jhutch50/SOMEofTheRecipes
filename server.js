@@ -72,7 +72,7 @@ app.use(bodyParser.json());
 app.use(multer({ dest: './public/images',
   rename: function (fieldname, filename) {
     return filename;
-  },
+  }
  }));
 
 routes(app);
