@@ -7,11 +7,6 @@ export const addNewRecipe = (req, res) => {
     //pulls information from the body
     let newRecipe = new Recipe(req.body);
 
-
-    //Saving images as numbers representing the image
-    newRecipe.img.data = fs.readFileSync(req.files.userPhoto.path);
-    newRecipe.img.contentType = 'image/png';
-
     //saves the recipe in the database
     newRecipe.save((err, recipe) => {
         if (err) {

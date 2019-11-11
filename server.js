@@ -2,9 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import routes from './src/routes/recipeRoutes';
-//for image uploads
-var fs = require('fs');
-var multer = require('multer');
 
 const app = express();
 
@@ -64,17 +61,20 @@ mongoose.connect(
     
 );
 
+
+
 //bodyParser setup for json definition
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
-//used for storing images when uploaded
-app.use(multer({ dest: './public/images', 
-rename: function (fieldname, filename) { 
-  return filename; 
-}}));
+
+
+
 
 routes(app);
+
+//statc file serving
+app.use(express.static('public/images'));
 
 //Logging in CLI
 app.get('/', (req, res) => 
