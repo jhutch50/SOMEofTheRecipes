@@ -77,11 +77,6 @@ app.use(bodyParser.json());
 
 routes(app);
 
-//statc file serving
-app.use(express.static('public'));
-
-
-
 //Logging in CLI
 app.get('/', (req, res) => 
     res.send(`Node and express server is running on port ${PORT}`)
