@@ -2,6 +2,10 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import routes from './src/routes/recipeRoutes';
+const express = require('express');
+const multer = require('multer');
+const upload = multer({dest: __dirname + '/public/images'});
+
 
 const app = express();
 
@@ -74,7 +78,15 @@ app.use(bodyParser.json());
 routes(app);
 
 //statc file serving
-app.use(express.static('public/images'));
+app.use(express.static('public'));
+
+app.post('/images', upload.single('photo'), (req, res) => {
+  if(req.file) {
+      res.json(req.file);
+  }
+  else throw 'error';
+});
+
 
 //Logging in CLI
 app.get('/', (req, res) => 
