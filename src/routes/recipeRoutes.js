@@ -1,6 +1,7 @@
 import { runInNewContext } from "vm";
 import { addNewRecipe, getAllRecipes, getRecipeWithID, updateRecipe, deleteRecipe } from '../controllers/recipeController';
 
+
 const routes = (app) => {
     app.route('/recipe')
 
@@ -19,6 +20,8 @@ const routes = (app) => {
         console.log(`Request type: ${req.method}`)
         next();
     },addNewRecipe);
+
+      
 
     //PUT Endpoint
     app.route('/recipe/:recipeId')
@@ -45,6 +48,7 @@ const routes = (app) => {
         console.log(`Request type: ${req.method}`)
         next();
     }, getRecipeWithID);
+
 
 }
 
